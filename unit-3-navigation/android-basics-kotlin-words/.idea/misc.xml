@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/USLU_/Desktop/android-basics-kotlin-words-app-starter/app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="..\:/Users/USLU_/Desktop/android-basics-kotlin-words-app-starter/app/src/main/res/menu/layout_menu.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/USLU_/Desktop/coding/kotlin &amp; java/projects/codelab/navigation/android-basics-kotlin-words-app-starter/app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="..\:/Users/USLU_/Desktop/coding/kotlin &amp; java/projects/codelab/navigation/android-basics-kotlin-words-app-starter/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/USLU_/Desktop/coding/kotlin &amp; java/projects/codelab/navigation/android-basics-kotlin-words-app-starter/app/src/main/res/layout/fragment_letter_list.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/USLU_/Desktop/coding/kotlin &amp; java/projects/codelab/navigation/android-basics-kotlin-words-app-starter/app/src/main/res/layout/fragment_word_list.xml" value="0.1" />
+        <entry key="..\:/Users/USLU_/Desktop/coding/kotlin &amp; java/projects/codelab/navigation/android-basics-kotlin-words-app-starter/app/src/main/res/menu/layout_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
