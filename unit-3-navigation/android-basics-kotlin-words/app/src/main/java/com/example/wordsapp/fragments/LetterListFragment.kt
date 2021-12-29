@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.adapters.LetterAdapter
 import com.example.wordsapp.R
+import com.example.wordsapp.data.SettingsDataStore
+import com.example.wordsapp.data.dataStorage
 import com.example.wordsapp.databinding.FragmentLetterListBinding
+import kotlinx.coroutines.launch
 
 class LetterListFragment : Fragment() {
     private var _binding: FragmentLetterListBinding? = null
@@ -34,15 +39,21 @@ class LetterListFragment : Fragment() {
     ): View? {
         // Retrieve and inflate the layout for this fragment
         _binding = FragmentLetterListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.recyclerView
         // Sets the LayoutManager of the recyclerview
         // On the first run of the app, it will be LinearLayoutManager
-        chooseLayout()
+        val settings : SettingsDataStore = SettingsDataStore(requireContext().dataStorage)
+        settings.preferencesFlow.asLiveData().observe(viewLifecycleOwner, {  })
+        settings.preferencesFlow.asLiveData().observe(viewLifecycleOwner, { value ->
+            isLinearLayoutManager = value
+            chooseLayout()
+            // Redraw the menu
+            activity?.invalidateOptionsMenu()
+        })
     }
 
     /**
@@ -94,6 +105,12 @@ class LetterListFragment : Fragment() {
                 // Sets isLinearLayoutManager (a Boolean) to the opposite value
                 isLinearLayoutManager = !isLinearLayoutManager
                 // Sets layout and icon
+                val settings = SettingsDataStore(requireContext().dataStorage)
+
+                lifecycleScope.launch {
+                    settings.saveLayoutToPreferencesData(isLinearLayoutManager,requireContext())
+                }
+
                 chooseLayout()
                 setIcon(item)
 
